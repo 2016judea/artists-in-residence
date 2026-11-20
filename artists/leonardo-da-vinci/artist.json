@@ -1,0 +1,22 @@
+{
+  "name": "Leonardo da Vinci",
+  "short": "leonardo",
+  "served": [
+    "Aetas Nova No. 1 (AI)"
+  ],
+  "source": "~/.claude/skills/leonardo",
+  "plate_py": "scripts/plate.py",
+  "style": "SKILL.md",
+  "default_mode": "ink",
+  "default_aspect": "3:4",
+  "summary": "Source of truth is the leonardo skill folder (stems, notes, tail, 15 anchor sheets, mode table in scripts/plate.py), read in place. For a sheet with no legible writing, flip=true turns right-handed hatching into his left-handed hatching.",
+  "years": "1452–1519",
+  "public_summary": "Drawings and notebook pages: anatomy, machines and flight, water and storms, horses, heads and caricatures, drapery, plants, landscapes, maps. Pen and brown ink, red chalk, metalpoint, tempera on linen, mirror-script notes.",
+  "examples": [
+    "flying machines",
+    "horses",
+    "the skull",
+    "storms and water",
+    "drapery"
+  ]
+}

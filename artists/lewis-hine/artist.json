@@ -1,0 +1,46 @@
+{
+  "name": "Lewis Hine",
+  "short": "hine",
+  "served": [
+    "Credo No. 2"
+  ],
+  "default_mode": "height",
+  "default_aspect": "5:4",
+  "subject_label": "SUBJECT — what is in this photograph:",
+  "summary": "Documentary black-and-white work portraits: ironworkers on skyscraper steel (1930-31) and workers at machines (1920s-30s). Generated photographs never carry a caption, place, date or person name, so none can pass for a historical record.",
+  "modes": {
+    "height": {
+      "stem": "stem-height.txt",
+      "notes": "none",
+      "aspect": "5:4",
+      "about": "ironworkers on skyscraper steel at height, pale sky or hazy city far below",
+      "anchors": [
+        "icarus",
+        "girders",
+        "young",
+        "esb-met"
+      ]
+    },
+    "labor": {
+      "stem": "stem-labor.txt",
+      "notes": "none",
+      "aspect": "4:5",
+      "about": "a worker absorbed in a task at a machine, window or lamp light, machine and man sharing the frame",
+      "anchors": [
+        "mechanic",
+        "sander",
+        "looms",
+        "glass"
+      ]
+    }
+  },
+  "years": "1874–1940",
+  "public_summary": "Documentary photographs: children at work in mills, mines, fields and streets for the National Child Labor Committee (1908–1924), and work portraits and the Empire State Building going up (1920s–30s). Gelatin silver prints.",
+  "examples": [
+    "the Empire State Building",
+    "textile mills",
+    "newsboys",
+    "coal mines",
+    "cotton pickers"
+  ]
+}

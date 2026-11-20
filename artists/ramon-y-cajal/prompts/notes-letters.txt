@@ -1,0 +1,1 @@
+LETTERING: only single printed letters labelling structures, in a small plain roman typeface: capitals A to L and a few lowercase a to e, each set beside the part it names, some with a thin straight leader line. No words, no figure number, no caption, no title, no scale, no line of text anywhere.

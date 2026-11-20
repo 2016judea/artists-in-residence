@@ -1,0 +1,55 @@
+{
+  "name": "Sir Isaac Newton",
+  "short": "newton",
+  "served": [
+    "Aetas Nova No. 2 (black holes)"
+  ],
+  "default_mode": "plate",
+  "default_aspect": "3:4",
+  "subject_label": "SUBJECT — what is on this page:",
+  "summary": "Engraved figures from Opticks and the Principia (rays, lenses, orbits, lettered points) and his own manuscript notebook pages. Never flip: the letters reverse.",
+  "modes": {
+    "plate": {
+      "stem": "stem-plate.txt",
+      "notes": "letters",
+      "aspect": "3:4",
+      "about": "an engraved Opticks-style plate: several numbered geometrical figures (rays, lenses, prisms) scattered on one sheet",
+      "anchors": [
+        "opticks-110",
+        "opticks-122",
+        "opticks-180",
+        "opticks-248"
+      ]
+    },
+    "figure": {
+      "stem": "stem-figure.txt",
+      "notes": "letters",
+      "aspect": "2:3",
+      "about": "one engraved Principia-style figure on a mostly empty page: compass circles, orbits, trajectories, lettered points",
+      "anchors": [
+        "system-of-the-world-cannon",
+        "principia-comet-1680",
+        "opticks-372"
+      ]
+    },
+    "notebook": {
+      "stem": "stem-notebook.txt",
+      "notes": "hand",
+      "aspect": "3:4",
+      "about": "a manuscript notebook page: brown ink, dense slanting hand, one small working sketch set into the text",
+      "anchors": [
+        "notebook-micrographia-snowflakes",
+        "notebook-organon"
+      ]
+    }
+  },
+  "years": "1643–1727",
+  "public_summary": "Pages and figures from his own books and manuscripts: the Principia (1687 and the editions he oversaw), the Opticks, his notebooks and papers. Engraved geometric figures with lettered points, orbits, prisms and lenses, title pages, handwritten pages.",
+  "examples": [
+    "orbits",
+    "the Principia title page",
+    "a manuscript page",
+    "prisms and light",
+    "comets"
+  ]
+}

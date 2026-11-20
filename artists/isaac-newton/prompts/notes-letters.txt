@@ -1,0 +1,1 @@
+LETTERING: only small engraved letters marking points on the figures (capitals such as A B C D E F, and a few lowercase italic a b c) and, beside each figure, a small italic engraved "Fig." followed by a numeral. Nothing else is lettered: no words, no running head, no title, no caption, no page number, no line of text anywhere.

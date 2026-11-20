@@ -1,0 +1,106 @@
+[
+ {
+  "slug": "leonardo-da-vinci",
+  "tool": "leonardo_da_vinci",
+  "name": "Leonardo da Vinci",
+  "served": [
+   "Aetas Nova No. 1 (AI)"
+  ],
+  "summary": "Drawings and notebook pages: anatomy, machines and flight, water and storms, horses, heads and caricatures, drapery, plants, landscapes, maps. Pen and brown ink, red chalk, metalpoint, tempera on linen, mirror-script notes.",
+  "years": "1452–1519",
+  "kinds": {},
+  "examples": [
+   "flying machines",
+   "horses",
+   "the skull",
+   "storms and water",
+   "drapery"
+  ]
+ },
+ {
+  "slug": "isaac-newton",
+  "tool": "isaac_newton",
+  "name": "Sir Isaac Newton",
+  "served": [
+   "Aetas Nova No. 2 (black holes)"
+  ],
+  "summary": "Pages and figures from his own books and manuscripts: the Principia (1687 and the editions he oversaw), the Opticks, his notebooks and papers. Engraved geometric figures with lettered points, orbits, prisms and lenses, title pages, handwritten pages.",
+  "years": "1643–1727",
+  "kinds": {
+   "plate": "an engraved Opticks-style plate: several numbered geometrical figures (rays, lenses, prisms) scattered on one sheet",
+   "figure": "one engraved Principia-style figure on a mostly empty page: compass circles, orbits, trajectories, lettered points",
+   "notebook": "a manuscript notebook page: brown ink, dense slanting hand, one small working sketch set into the text"
+  },
+  "examples": [
+   "orbits",
+   "the Principia title page",
+   "a manuscript page",
+   "prisms and light",
+   "comets"
+  ]
+ },
+ {
+  "slug": "ramon-y-cajal",
+  "tool": "ramon_y_cajal",
+  "name": "Santiago Ramón y Cajal",
+  "served": [
+   "Aetas Nova No. 3 (classic literature)"
+  ],
+  "summary": "His drawings of the nervous system (Golgi-stained neurons, glia, the retina, the cerebellum, sections of the brainstem and spinal cord) in pen and India ink, and photographs he took.",
+  "years": "1852–1934",
+  "kinds": {
+   "cells": "a few whole Golgi-black nerve cells and glia, dendrites branching to spines, axons wandering across a pale field",
+   "section": "a low-power map of a whole region of a section: fibre streams as parallel lines, stippled cell groups, the tissue's own edge"
+  },
+  "examples": [
+   "neurons",
+   "the retina",
+   "glia",
+   "the spinal cord",
+   "Purkinje cells"
+  ]
+ },
+ {
+  "slug": "lewis-hine",
+  "tool": "lewis_hine",
+  "name": "Lewis Hine",
+  "served": [
+   "Credo No. 2"
+  ],
+  "summary": "Documentary photographs: children at work in mills, mines, fields and streets for the National Child Labor Committee (1908–1924), and work portraits and the Empire State Building going up (1920s–30s). Gelatin silver prints.",
+  "years": "1874–1940",
+  "kinds": {
+   "height": "ironworkers on skyscraper steel at height, pale sky or hazy city far below",
+   "labor": "a worker absorbed in a task at a machine, window or lamp light, machine and man sharing the frame"
+  },
+  "examples": [
+   "the Empire State Building",
+   "textile mills",
+   "newsboys",
+   "coal mines",
+   "cotton pickers"
+  ]
+ },
+ {
+  "slug": "el-lissitzky",
+  "tool": "el_lissitzky",
+  "name": "El Lissitzky",
+  "served": [
+   "Credo No. 1"
+  ],
+  "summary": "Works dated 1930 or earlier only (US public domain): Prouns, the 1923 Victory over the Sun figurines, posters, book and magazine design, typography, photomontage.",
+  "years": "1890–1941",
+  "kinds": {
+   "proun": "a Proun: beams, slabs and discs in axonometric projection floating on a pale textured ground",
+   "figurine": "a 1923-lithograph mechanical stage figure built from red, black and graphite-grey geometric parts on a white sheet",
+   "poster": "a flat red-black-white agitprop poster: one hard division, a driving wedge or circle, scattered bars"
+  },
+  "examples": [
+   "Prouns",
+   "posters",
+   "the Victory over the Sun figurines",
+   "book covers",
+   "typography"
+  ]
+ }
+]

@@ -1,0 +1,45 @@
+{
+  "name": "Santiago Ramón y Cajal",
+  "short": "cajal",
+  "served": [
+    "Aetas Nova No. 3 (classic literature)"
+  ],
+  "default_mode": "cells",
+  "default_aspect": "3:4",
+  "subject_label": "SUBJECT — what this figure shows:",
+  "summary": "Pen-and-India-ink histology figures from Histologie du système nerveux (1909): Golgi-black neurons with branching dendrites, fibre tracts, letter labels with leaders.",
+  "modes": {
+    "cells": {
+      "stem": "stem-cells.txt",
+      "notes": "letters",
+      "aspect": "3:4",
+      "about": "a few whole Golgi-black nerve cells and glia, dendrites branching to spines, axons wandering across a pale field",
+      "anchors": [
+        "fig437",
+        "fig107",
+        "fig309"
+      ]
+    },
+    "section": {
+      "stem": "stem-section.txt",
+      "notes": "letters",
+      "aspect": "3:4",
+      "about": "a low-power map of a whole region of a section: fibre streams as parallel lines, stippled cell groups, the tissue's own edge",
+      "anchors": [
+        "fig428",
+        "fig398",
+        "fig330",
+        "fig369"
+      ]
+    }
+  },
+  "years": "1852–1934",
+  "public_summary": "His drawings of the nervous system (Golgi-stained neurons, glia, the retina, the cerebellum, sections of the brainstem and spinal cord) in pen and India ink, and photographs he took.",
+  "examples": [
+    "neurons",
+    "the retina",
+    "glia",
+    "the spinal cord",
+    "Purkinje cells"
+  ]
+}
