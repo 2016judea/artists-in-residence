@@ -101,3 +101,24 @@ restrictions"; the credit line, licence and source link come with each one. Noth
 our side. The catalog is built ahead of time from Wikimedia Commons, the Library of Congress, the Wellcome Collection
 and the Internet Archive. No account and nothing stored about the person: a per-day count of tool calls only (privacy
 page). Independent; not affiliated with any museum or library.
+
+## Submitted 2026-11-20
+
+Filed by Claude in Aidan's own Chrome (JavaScript run by process id into a background tab; `browser-as-aidan`).
+No other session's form was open at the time. Nothing was paid and nothing was sent to a person.
+
+| Where | Status | UTC | Listing |
+|---|---|---|---|
+| Claude Connectors Directory | **PUBLISHED** (approved about two minutes after filing; Publish pressed) | 18:15 filed, 18:16 published | claude.ai/directory/manage/artists-in-residence · slug `artists-in-residence` (permanent) |
+
+**What was filed.** Custom connector "Artists in Residence" added to his Claude (6 tools, 0 resources, auth none
+detected). Name, one-liner and description verbatim from this kit. Categories: Education, Creative, Media &
+Entertainment. Author Brick and Mortar AI LLC (https://brickandmortar.dev). Docs `/`, support the GitHub issues URL,
+privacy `/privacy`, custom icon `/icon.png` (loaded at 512). Use cases as above. Prerequisites: none. Read only.
+Company Brick and Mortar AI LLC, Aidan Jude, Founder. Auth none. Data handling "We own the API", no health data, no
+sponsored content. Self-tested: every tool run through `@modelcontextprotocol/inspector@0.17.2 --cli` against the
+live endpoint before ticking the box. All seven compliance boxes ticked (true now that nothing generates images);
+the additional note is the reviewer note above plus one line on the thumbnail fetch.
+
+**Form traps this time:** a hidden mobile step selector (`…-hidden-input`, value `useCases`) is the first text
+input on step 4, so fill by element id, not by index.
