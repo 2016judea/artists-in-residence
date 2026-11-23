@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.2016judea/artists-in-residence",
+  "title": "Artists in Residence",
+  "description": "Real public-domain works by Leonardo, Newton, Cajal, Lissitzky and Hine, with credit and licence",
+  "version": "1.0.0",
+  "websiteUrl": "https://artists-in-residence.small-business-intelligence-mcp.workers.dev/",
+  "repository": {
+    "url": "https://github.com/2016judea/artists-in-residence",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://artists-in-residence.small-business-intelligence-mcp.workers.dev/mcp"
+    }
+  ]
+}

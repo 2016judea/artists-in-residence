@@ -122,3 +122,5 @@ the additional note is the reviewer note above plus one line on the thumbnail fe
 
 **Form traps this time:** a hidden mobile step selector (`…-hidden-input`, value `useCases`) is the first text
 input on step 4, so fill by element id, not by index.
+
+**Official MCP Registry (2026-11-22):** `io.github.2016judea/artists-in-residence` 1.0.0, remote `https://artists-in-residence.small-business-intelligence-mcp.workers.dev/mcp`; `.github/workflows/mcp-registry.yml` republishes on every `server.json` version bump. Check: `curl "https://registry.modelcontextprotocol.io/v0/servers?search=io.github.2016judea/artists-in-residence"`.
