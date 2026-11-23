@@ -148,3 +148,20 @@ ZIP: `chatgpt-plugin.zip`, built by `python3 scripts/build_chatgpt_plugin.py --l
 | `leonardo_inventions` | True | False | False | Searches the pre-built catalogue of public-domain works and returns matches; changes nothing. Any image is read from the holding institution's public image host or our own copy, with no user data sent, so nothing outside is written to or acted on. |
 | `constructivist_posters` | True | False | False | Searches the pre-built catalogue of public-domain works and returns matches; changes nothing. Any image is read from the holding institution's public image host or our own copy, with no user data sent, so nothing outside is written to or acted on. |
 <!-- /chatgpt-hints -->
+
+## xAI marketplace (Grok Bot, Cursor, Grok) — SUBMITTED 2026-11-23
+
+Filed 2026-11-23T02:24:50Z at x.ai/bot/marketplace/submit-a-plugin; the page answered "Thanks for submitting your plugin!".
+Status: pending review (xAI replies by email to the work address). Destinations ticked: Grok (coming soon), Grok Bot,
+Cursor. Org Brick and Mortar AI LLC, handle `brickandmortar`. Name Artists in Residence. Website https://artists-in-residence.small-business-intelligence-mcp.workers.dev/.
+Logo https://artists-in-residence.small-business-intelligence-mcp.workers.dev/icon.png (solid plate, 1:1). MCP URL https://artists-in-residence.small-business-intelligence-mcp.workers.dev/mcp (the URL, never a repo). Cursor's Publisher Terms §3.1
+bar charging users "directly or indirectly" through the plugin; the connector itself is free.
+
+Description (598 chars):
+
+> Real public-domain works by five artists, each with its credit line, licence and source page: Leonardo da Vinci's drawings and notebooks, Isaac Newton's Principia and manuscripts, Santiago Ramón y Cajal's drawings of the nervous system, El Lissitzky's Prouns and posters (1930 and earlier), and Lewis Hine's documentary photographs. Ask for a subject; get the matching works, the first as an image. Built from Wikimedia Commons, the Library of Congress, the Art Institute of Chicago, the Wellcome Collection and the Internet Archive. Nothing is generated. Not affiliated with any museum or library.
+
+Testing (563 chars):
+
+> No account or credentials needed. Add the MCP URL as a remote server, then try: 1) "Show me Leonardo da Vinci's designs for flying machines." -> leonardo_da_vinci shows 'Design for a flying machine' (c. 1488) as an image with credit and licence. 2) "How should I credit the Vitruvian Man in a slide deck?" -> how_to_credit_artwork: public domain, Gallerie dell'Accademia, Venice, and the credit line. 3) "Find Lewis Hine's child labor photographs taken in cotton mills." -> child_labor_photographs lists matching photographs, each with its credit and source page.
+
