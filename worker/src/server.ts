@@ -12,6 +12,8 @@ import hine from "./catalog/lewis-hine.json";
 
 export interface Env extends UsageEnv {
   ASSETS: Fetcher;
+  /** OpenAI app domain check token, served at /.well-known/openai-apps-challenge (Worker secret). */
+  OPENAI_APPS_CHALLENGE?: string;
 }
 
 interface ArtistMeta {

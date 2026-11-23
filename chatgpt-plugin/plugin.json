@@ -1,0 +1,118 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "artists-in-residence",
+  "version": "1.0.0",
+  "description": "Real public-domain works by five artists, each with its credit line, licence and source page: Leonardo da Vinci's drawings and notebooks, Isaac Newton's Principia and manuscripts, Santiago Ramón y Cajal's drawings of the nervous system, El Lissitzky's Prouns and posters (1930 and earlier), and Lewis Hine's documentary photographs. Ask for a subject and get the matching works, the first as an image. The catalogue is built from Wikimedia Commons, the Library of Congress, the Art Institute of Chicago, the Wellcome Collection and the Internet Archive, and admits a work only if its source marks it public domain, CC0 or no known restrictions. Nothing is generated. Independent; not affiliated with any museum or library.",
+  "author": {
+    "name": "Brick and Mortar AI LLC",
+    "url": "https://artists-in-residence.small-business-intelligence-mcp.workers.dev/"
+  },
+  "homepage": "https://artists-in-residence.small-business-intelligence-mcp.workers.dev/",
+  "license": "LicenseRef-All-Rights-Reserved",
+  "keywords": [
+    "public domain art",
+    "Leonardo da Vinci",
+    "Isaac Newton",
+    "Ramon y Cajal",
+    "Lewis Hine",
+    "El Lissitzky",
+    "art history",
+    "image credits"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Artists in Residence",
+        "shortDescription": "Public-domain art, credited",
+        "longDescription": "Real public-domain works by five artists, each with its credit line, licence and source page: Leonardo da Vinci's drawings and notebooks, Isaac Newton's Principia and manuscripts, Santiago Ramón y Cajal's drawings of the nervous system, El Lissitzky's Prouns and posters (1930 and earlier), and Lewis Hine's documentary photographs. Ask for a subject and get the matching works, the first as an image. The catalogue is built from Wikimedia Commons, the Library of Congress, the Art Institute of Chicago, the Wellcome Collection and the Internet Archive, and admits a work only if its source marks it public domain, CC0 or no known restrictions. Nothing is generated. Independent; not affiliated with any museum or library.",
+        "developerName": "Brick and Mortar AI LLC",
+        "category": "Education",
+        "capabilities": [],
+        "websiteURL": "https://artists-in-residence.small-business-intelligence-mcp.workers.dev/",
+        "supportURL": "https://brickandmortar.dev/contact",
+        "privacyPolicyURL": "https://artists-in-residence.small-business-intelligence-mcp.workers.dev/privacy",
+        "termsOfServiceURL": "https://brickandmortar.dev/license/",
+        "defaultPrompt": [
+          "Show me Leonardo da Vinci's flying machines",
+          "Find public-domain art of a horse",
+          "How do I credit the Vitruvian Man?"
+        ],
+        "logo": "./assets/logo.png",
+        "composerIcon": "./assets/composer-icon.png",
+        "composerIconDark": "./assets/composer-icon-dark.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "One artist's works on a subject",
+              "prompt": "Show me Leonardo da Vinci's designs for flying machines.",
+              "tools_triggered": [
+                "leonardo_da_vinci"
+              ],
+              "expected_behavior": "Calls leonardo_da_vinci and shows 'Design for a flying machine' (c. 1488, Biblioteca Ambrosiana) as an image, then lists the other matches, each with its credit line, licence and Wikimedia Commons source link."
+            },
+            {
+              "description": "A subject across all five artists",
+              "prompt": "Find me public-domain artwork of a horse.",
+              "tools_triggered": [
+                "public_domain_art_about"
+              ],
+              "expected_behavior": "Calls public_domain_art_about, says the matches by artist (Lewis Hine 76, Leonardo da Vinci 58, El Lissitzky 1), shows the first work as an image and lists the top five with credit, licence and source page."
+            },
+            {
+              "description": "How to credit a known work",
+              "prompt": "How should I credit the Vitruvian Man if I use it in a slide deck?",
+              "tools_triggered": [
+                "how_to_credit_artwork"
+              ],
+              "expected_behavior": "Calls how_to_credit_artwork and gives the licence (public domain), the holding institution (Gallerie dell'Accademia, Venice) and the attribution line to copy, with the source page link."
+            },
+            {
+              "description": "A theme door: Cajal's neuron drawings",
+              "prompt": "Show me Ramón y Cajal's drawings of neurons.",
+              "tools_triggered": [
+                "neuron_drawings"
+              ],
+              "expected_behavior": "Calls neuron_drawings and shows the first drawing as an image, listing the matching figures from Histologie du système nerveux (1909) with credit, licence and Internet Archive page."
+            },
+            {
+              "description": "A theme door narrowed by place",
+              "prompt": "Find Lewis Hine's child labor photographs taken in cotton mills.",
+              "tools_triggered": [
+                "child_labor_photographs"
+              ],
+              "expected_behavior": "Calls child_labor_photographs with narrow 'mill', reports how many photographs match, and lists the top five (e.g. the Lancaster Cotton Mills, 1908) with the Library of Congress credit, 'No known restrictions on publication' and the loc.gov item link."
+            }
+          ],
+          "negative": [
+            {
+              "description": "An artist outside the five",
+              "prompt": "Show me some paintings by Picasso.",
+              "expected_behavior": "Does not present any work as Picasso's. If a tool is called, it returns no Picasso works; the assistant says Picasso is not among the five artists and can offer the five it does cover."
+            },
+            {
+              "description": "A request to generate art",
+              "prompt": "Generate a new painting in the style of Leonardo da Vinci.",
+              "expected_behavior": "The connector is not called to make an image: it only returns real catalogued works and generates nothing. The assistant may offer to show Leonardo's actual drawings instead."
+            },
+            {
+              "description": "General art-history trivia with no work to find",
+              "prompt": "What year was the Mona Lisa stolen from the Louvre?",
+              "expected_behavior": "Answered from general knowledge without calling the connector; no tool returns museum history or news."
+            }
+          ]
+        },
+        "demo_recording_url": "https://artists-in-residence.small-business-intelligence-mcp.workers.dev/demo/chatgpt",
+        "commerce": false,
+        "commerce_description": "No purchase or payment happens in ChatGPT, and no tool offers, prices or links to one."
+      },
+      "publication": {
+        "countries": [
+          "US"
+        ],
+        "release_notes": "First ChatGPT release: fifteen read-only tools over a catalogue of public-domain works by Leonardo da Vinci, Isaac Newton, Ramón y Cajal, Lewis Hine and El Lissitzky, each work returned with its credit line, licence and source page."
+      }
+    }
+  }
+}

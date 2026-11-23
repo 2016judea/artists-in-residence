@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "artists-in-residence": {
+      "type": "streamable-http",
+      "url": "https://artists-in-residence.small-business-intelligence-mcp.workers.dev/mcp"
+    }
+  }
+}

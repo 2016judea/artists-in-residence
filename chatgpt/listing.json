@@ -1,0 +1,237 @@
+{
+  "name": "artists-in-residence",
+  "version": "1.0.0",
+  "dated": "2026-11-22",
+  "mcp_url": "https://artists-in-residence.small-business-intelligence-mcp.workers.dev/mcp",
+  "server_key": "artists-in-residence",
+  "logo_src": "worker/public/icon.png",
+  "composer_svg": "worker/public/icon-composer.svg",
+  "keywords": [
+    "public domain art",
+    "Leonardo da Vinci",
+    "Isaac Newton",
+    "Ramon y Cajal",
+    "Lewis Hine",
+    "El Lissitzky",
+    "art history",
+    "image credits"
+  ],
+  "description": "Real public-domain works by five artists, each with its credit line, licence and source page: Leonardo da Vinci's drawings and notebooks, Isaac Newton's Principia and manuscripts, Santiago Ramón y Cajal's drawings of the nervous system, El Lissitzky's Prouns and posters (1930 and earlier), and Lewis Hine's documentary photographs. Ask for a subject and get the matching works, the first as an image. The catalogue is built from Wikimedia Commons, the Library of Congress, the Art Institute of Chicago, the Wellcome Collection and the Internet Archive, and admits a work only if its source marks it public domain, CC0 or no known restrictions. Nothing is generated. Independent; not affiliated with any museum or library.",
+  "interface": {
+    "displayName": "Artists in Residence",
+    "shortDescription": "Public-domain art, credited",
+    "category": "Education",
+    "websiteURL": "https://artists-in-residence.small-business-intelligence-mcp.workers.dev/",
+    "supportURL": "https://brickandmortar.dev/contact",
+    "privacyPolicyURL": "https://artists-in-residence.small-business-intelligence-mcp.workers.dev/privacy",
+    "termsOfServiceURL": "https://brickandmortar.dev/license/",
+    "defaultPrompt": [
+      "Show me Leonardo da Vinci's flying machines",
+      "Find public-domain art of a horse",
+      "How do I credit the Vitruvian Man?"
+    ]
+  },
+  "demo_recording_url": "https://artists-in-residence.small-business-intelligence-mcp.workers.dev/demo/chatgpt",
+  "release_notes": "First ChatGPT release: fifteen read-only tools over a catalogue of public-domain works by Leonardo da Vinci, Isaac Newton, Ramón y Cajal, Lewis Hine and El Lissitzky, each work returned with its credit line, licence and source page.",
+  "test_cases": {
+    "positive": [
+      {
+        "description": "One artist's works on a subject",
+        "prompt": "Show me Leonardo da Vinci's designs for flying machines.",
+        "tools_triggered": [
+          "leonardo_da_vinci"
+        ],
+        "call": {
+          "tool": "leonardo_da_vinci",
+          "arguments": {
+            "subject": "flying machines"
+          }
+        },
+        "expect_in_result": [
+          "Design for a flying machine",
+          "Public domain"
+        ],
+        "expected_behavior": "Calls leonardo_da_vinci and shows 'Design for a flying machine' (c. 1488, Biblioteca Ambrosiana) as an image, then lists the other matches, each with its credit line, licence and Wikimedia Commons source link."
+      },
+      {
+        "description": "A subject across all five artists",
+        "prompt": "Find me public-domain artwork of a horse.",
+        "tools_triggered": [
+          "public_domain_art_about"
+        ],
+        "call": {
+          "tool": "public_domain_art_about",
+          "arguments": {
+            "subject": "horse"
+          }
+        },
+        "expect_in_result": [
+          "Lewis Hine 76",
+          "Leonardo da Vinci 58"
+        ],
+        "expected_behavior": "Calls public_domain_art_about, says the matches by artist (Lewis Hine 76, Leonardo da Vinci 58, El Lissitzky 1), shows the first work as an image and lists the top five with credit, licence and source page."
+      },
+      {
+        "description": "How to credit a known work",
+        "prompt": "How should I credit the Vitruvian Man if I use it in a slide deck?",
+        "tools_triggered": [
+          "how_to_credit_artwork"
+        ],
+        "call": {
+          "tool": "how_to_credit_artwork",
+          "arguments": {
+            "title": "Vitruvian Man"
+          }
+        },
+        "expect_in_result": [
+          "Gallerie dell'Accademia",
+          "Attribution line to copy"
+        ],
+        "expected_behavior": "Calls how_to_credit_artwork and gives the licence (public domain), the holding institution (Gallerie dell'Accademia, Venice) and the attribution line to copy, with the source page link."
+      },
+      {
+        "description": "A theme door: Cajal's neuron drawings",
+        "prompt": "Show me Ramón y Cajal's drawings of neurons.",
+        "tools_triggered": [
+          "neuron_drawings"
+        ],
+        "call": {
+          "tool": "neuron_drawings",
+          "arguments": {}
+        },
+        "expect_in_result": [
+          "Ramón y Cajal",
+          "Public domain"
+        ],
+        "expected_behavior": "Calls neuron_drawings and shows the first drawing as an image, listing the matching figures from Histologie du système nerveux (1909) with credit, licence and Internet Archive page."
+      },
+      {
+        "description": "A theme door narrowed by place",
+        "prompt": "Find Lewis Hine's child labor photographs taken in cotton mills.",
+        "tools_triggered": [
+          "child_labor_photographs"
+        ],
+        "call": {
+          "tool": "child_labor_photographs",
+          "arguments": {
+            "narrow": "mill"
+          }
+        },
+        "expect_in_result": [
+          "Lewis Hine",
+          "Library of Congress"
+        ],
+        "expected_behavior": "Calls child_labor_photographs with narrow 'mill', reports how many photographs match, and lists the top five (e.g. the Lancaster Cotton Mills, 1908) with the Library of Congress credit, 'No known restrictions on publication' and the loc.gov item link."
+      }
+    ],
+    "negative": [
+      {
+        "description": "An artist outside the five",
+        "prompt": "Show me some paintings by Picasso.",
+        "expected_behavior": "Does not present any work as Picasso's. If a tool is called, it returns no Picasso works; the assistant says Picasso is not among the five artists and can offer the five it does cover."
+      },
+      {
+        "description": "A request to generate art",
+        "prompt": "Generate a new painting in the style of Leonardo da Vinci.",
+        "expected_behavior": "The connector is not called to make an image: it only returns real catalogued works and generates nothing. The assistant may offer to show Leonardo's actual drawings instead."
+      },
+      {
+        "description": "General art-history trivia with no work to find",
+        "prompt": "What year was the Mona Lisa stolen from the Louvre?",
+        "expected_behavior": "Answered from general knowledge without calling the connector; no tool returns museum history or news."
+      }
+    ]
+  },
+  "hints": {
+    "list_artists": {
+      "readOnly": true,
+      "destructive": false,
+      "openWorld": false,
+      "why": "Returns the fixed list of the five artists and their catalogue counts from data bundled with the server; changes nothing and makes no outside request."
+    },
+    "leonardo_da_vinci": {
+      "readOnly": true,
+      "destructive": false,
+      "openWorld": false,
+      "why": "Searches a catalogue of one artist's public-domain works built ahead of time and returns the matches; changes nothing. The image is read from the holding institution's public image host or our own copy, with nothing from the user sent along, so no outside system is written to or acted on."
+    },
+    "isaac_newton": {
+      "readOnly": true,
+      "destructive": false,
+      "openWorld": false,
+      "why": "Searches a catalogue of one artist's public-domain works built ahead of time and returns the matches; changes nothing. The image is read from the holding institution's public image host or our own copy, with nothing from the user sent along, so no outside system is written to or acted on."
+    },
+    "ramon_y_cajal": {
+      "readOnly": true,
+      "destructive": false,
+      "openWorld": false,
+      "why": "Searches a catalogue of one artist's public-domain works built ahead of time and returns the matches; changes nothing. The image is read from the holding institution's public image host or our own copy, with nothing from the user sent along, so no outside system is written to or acted on."
+    },
+    "lewis_hine": {
+      "readOnly": true,
+      "destructive": false,
+      "openWorld": false,
+      "why": "Searches a catalogue of one artist's public-domain works built ahead of time and returns the matches; changes nothing. The image is read from the holding institution's public image host or our own copy, with nothing from the user sent along, so no outside system is written to or acted on."
+    },
+    "el_lissitzky": {
+      "readOnly": true,
+      "destructive": false,
+      "openWorld": false,
+      "why": "Searches a catalogue of one artist's public-domain works built ahead of time and returns the matches; changes nothing. The image is read from the holding institution's public image host or our own copy, with nothing from the user sent along, so no outside system is written to or acted on."
+    },
+    "public_domain_art_about": {
+      "readOnly": true,
+      "destructive": false,
+      "openWorld": false,
+      "why": "Searches the pre-built catalogue of public-domain works and returns matches; changes nothing. Any image is read from the holding institution's public image host or our own copy, with no user data sent, so nothing outside is written to or acted on."
+    },
+    "how_to_credit_artwork": {
+      "readOnly": true,
+      "destructive": false,
+      "openWorld": false,
+      "why": "Searches the pre-built catalogue of public-domain works and returns matches; changes nothing. Any image is read from the holding institution's public image host or our own copy, with no user data sent, so nothing outside is written to or acted on."
+    },
+    "art_from_year": {
+      "readOnly": true,
+      "destructive": false,
+      "openWorld": false,
+      "why": "Searches the pre-built catalogue of public-domain works and returns matches; changes nothing. Any image is read from the holding institution's public image host or our own copy, with no user data sent, so nothing outside is written to or acted on."
+    },
+    "artwork_of_the_day": {
+      "readOnly": true,
+      "destructive": false,
+      "openWorld": false,
+      "why": "Searches the pre-built catalogue of public-domain works and returns matches; changes nothing. Any image is read from the holding institution's public image host or our own copy, with no user data sent, so nothing outside is written to or acted on."
+    },
+    "child_labor_photographs": {
+      "readOnly": true,
+      "destructive": false,
+      "openWorld": false,
+      "why": "Searches the pre-built catalogue of public-domain works and returns matches; changes nothing. Any image is read from the holding institution's public image host or our own copy, with no user data sent, so nothing outside is written to or acted on."
+    },
+    "neuron_drawings": {
+      "readOnly": true,
+      "destructive": false,
+      "openWorld": false,
+      "why": "Searches the pre-built catalogue of public-domain works and returns matches; changes nothing. Any image is read from the holding institution's public image host or our own copy, with no user data sent, so nothing outside is written to or acted on."
+    },
+    "leonardo_anatomy_drawings": {
+      "readOnly": true,
+      "destructive": false,
+      "openWorld": false,
+      "why": "Searches the pre-built catalogue of public-domain works and returns matches; changes nothing. Any image is read from the holding institution's public image host or our own copy, with no user data sent, so nothing outside is written to or acted on."
+    },
+    "leonardo_inventions": {
+      "readOnly": true,
+      "destructive": false,
+      "openWorld": false,
+      "why": "Searches the pre-built catalogue of public-domain works and returns matches; changes nothing. Any image is read from the holding institution's public image host or our own copy, with no user data sent, so nothing outside is written to or acted on."
+    },
+    "constructivist_posters": {
+      "readOnly": true,
+      "destructive": false,
+      "openWorld": false,
+      "why": "Searches the pre-built catalogue of public-domain works and returns matches; changes nothing. Any image is read from the holding institution's public image host or our own copy, with no user data sent, so nothing outside is written to or acted on."
+    }
+  }
+}

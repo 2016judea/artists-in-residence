@@ -7,7 +7,7 @@ import {
 } from "@modelcontextprotocol/server";
 import { createServer, TOOL_NAMES, type Env } from "./server.js";
 import { note } from "./usage.js";
-import { landingHtml, privacyHtml } from "./pages.js";
+import { demoHtml, landingHtml, privacyHtml } from "./pages.js";
 
 const HTML = { "content-type": "text/html; charset=utf-8", "cache-control": "public, max-age=300, must-revalidate" };
 
@@ -36,6 +36,16 @@ export default {
     if (url.pathname === "/") return new Response(landingHtml(origin), { headers: HTML });
     if (url.pathname === "/privacy") return new Response(privacyHtml(origin), { headers: HTML });
     if (url.pathname === "/favicon.ico") return Response.redirect(`${origin}/icon.png`, 302);
+    if (url.pathname === "/.well-known/openai-apps-challenge") {
+      const token = (env.OPENAI_APPS_CHALLENGE ?? "").trim();
+      return new Response(token || "not set", {
+        status: token ? 200 : 404,
+        headers: { "content-type": "text/plain; charset=utf-8", "cache-control": "no-store" },
+      });
+    }
+    if (url.pathname === "/demo/chatgpt" || url.pathname === "/demo/chatgpt/") {
+      return new Response(demoHtml(), { headers: { ...HTML, "x-robots-tag": "noindex, nofollow" } });
+    }
     if (url.pathname === "/mcp") {
       const rejected =
         hostHeaderValidationResponse(request, [...localhostAllowedHostnames(), url.hostname]) ??
