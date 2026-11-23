@@ -8,6 +8,7 @@ import {
 import { createServer, TOOL_NAMES, type Env } from "./server.js";
 import { note } from "./usage.js";
 import { demoHtml, landingHtml, privacyHtml } from "./pages.js";
+import { withMcpLog } from "./mcp_log.js";
 
 const HTML = { "content-type": "text/html; charset=utf-8", "cache-control": "public, max-age=300, must-revalidate" };
 
@@ -29,7 +30,7 @@ async function logRpc(request: Request, env: Env): Promise<void> {
   }
 }
 
-export default {
+const worker = {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
     const origin = url.origin;
@@ -57,3 +58,6 @@ export default {
     return env.ASSETS.fetch(request);
   },
 };
+
+// One PostHog event per tool call (mcp_log.ts); never arguments or results.
+export default { ...worker, fetch: withMcpLog("artists-in-residence", worker.fetch) };

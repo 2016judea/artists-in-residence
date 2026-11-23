@@ -47,7 +47,7 @@ export function privacyHtml(origin: string): string {
 <h2>What it does with it</h2>
 <p>The arguments are used to look up works in a catalogue built ahead of time, and the answer is sent back. They are then dropped. They are not stored, not shared, not sold and not used to train any model. No AI model runs on our side; the assistant you are using does the reasoning.</p>
 <h2>What is counted</h2>
-<p>A count of tool calls per tool per day, kept in a Cloudflare D1 database, used to see whether anyone uses it and to stop at a daily limit. Each request also writes a log line with the request method and the tool name. Neither the count nor the log holds what you searched for, your IP address or anything that identifies you.</p>
+<p>A count of tool calls per tool per day, kept in a Cloudflare D1 database, used to see whether anyone uses it and to stop at a daily limit. Each request also writes a log line with the request method and the tool name. Neither the count nor the log holds what you searched for, your IP address or anything that identifies you. Each tool call also sends one event to PostHog: the tool name, whether it succeeded, how long it took, and the kind of app that called it (Claude, ChatGPT, a script and so on) with the first word of its user agent. The event carries no arguments, no results, no IP address and no id that links one call to another.</p>
 <h2>Images</h2>
 <p>When a tool returns a picture, the server fetches it from the holding institution's image host (Wikimedia, the Library of Congress, the Art Institute of Chicago, the Wellcome Collection) or from its own copy. Those hosts see a request from Cloudflare, not from you, and nothing about you is sent with it.</p>
 <h2>Website analytics</h2>
