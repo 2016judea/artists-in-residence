@@ -15,6 +15,18 @@ const CASES = [
   ["lewis_hine", "empire state building"], ["lewis_hine", "newsboys"],
   ["lewis_hine", "zzqx qqvv"],
 ];
+// Theme doors (QUESTIONS.md): each must answer with a credit, a licence and an image.
+const DOOR_CASES = [
+  ["public_domain_art_about", { subject: "horse", limit: 3 }],
+  ["how_to_credit_artwork", { title: "Vitruvian Man" }],
+  ["art_from_year", { from: 1910, limit: 3 }],
+  ["artwork_of_the_day", {}],
+  ["child_labor_photographs", { narrow: "coal mine", limit: 3 }],
+  ["neuron_drawings", { limit: 3 }],
+  ["leonardo_anatomy_drawings", { limit: 3 }],
+  ["leonardo_inventions", { limit: 3 }],
+  ["constructivist_posters", { limit: 3 }],
+];
 
 const client = new Client({ name: "air-live-cases", version: "0.1.0" });
 await client.connect(new StreamableHTTPClientTransport(new URL(URL_)));
@@ -38,6 +50,15 @@ for (const [tool, subject] of CASES) {
   check(!r.isError && /Licence:/.test(text) && /Credit:/.test(text) && !!img,
     `${tool} "${subject}" (${Date.now() - t0} ms): ${text.split("\n")[0].slice(0, 90)} | ${first.slice(0, 80)} | image ${img ? Math.round(img.data.length * 0.75 / 1024) + " KB" : "NONE"}`);
 }
+for (const [tool, args] of DOOR_CASES) {
+  const t0 = Date.now();
+  const r = await client.callTool({ name: tool, arguments: args });
+  const text = r.content.filter((c) => c.type === "text").map((c) => c.text).join("\n");
+  const img = r.content.find((c) => c.type === "image");
+  check(!r.isError && /Licence:/.test(text) && /Credit:/.test(text) && !!img,
+    `${tool} ${JSON.stringify(args)} (${Date.now() - t0} ms): ${text.split("\n")[0].slice(0, 100)} | image ${img ? "yes" : "NONE"}`);
+}
+check(tools.tools.length === 15, `tools/list has 15 tools (${tools.tools.length})`);
 await client.close();
 console.log(fails ? `${fails} failed` : "all passed");
 process.exit(fails ? 1 : 0);

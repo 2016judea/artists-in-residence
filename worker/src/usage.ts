@@ -42,3 +42,18 @@ export async function admit(env: UsageEnv, tool: string): Promise<{ ok: boolean;
     return { ok: false, used: cap, cap };
   }
 }
+
+/**
+ * A bare counter for things worth reading later that aren't tool calls: a subject that found no
+ * exact match (`<tool>:miss`) and a tool name nobody built (`unknown:<name>`). Never the arguments
+ * themselves (see /privacy). Not capped: it never runs without an admitted call or a refused one.
+ */
+export async function note(env: UsageEnv, key: string): Promise<void> {
+  try {
+    await env.DB.prepare(`INSERT INTO calls (day, tool, n) VALUES (?1, ?2, 1) ON CONFLICT(day, tool) DO UPDATE SET n = n + 1`)
+      .bind(today(), key.slice(0, 80))
+      .run();
+  } catch (e) {
+    console.log(JSON.stringify({ ev: "note_error", key, error: String(e).slice(0, 200) }));
+  }
+}
